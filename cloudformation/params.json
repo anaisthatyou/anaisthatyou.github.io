@@ -1,6 +1,14 @@
 [
   {
-    "key": "foo",
-    "value": "bar"
+    "ParameterKey": "pPipelineName",
+    "ParameterValue": "ana"
+  },
+  {
+    "ParameterKey": "pPipelineVersion",
+    "ParameterValue": "3"
+  },
+  {
+    "ParameterKey": "pGitHubToken",
+    "ParameterValue": "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"
   }
 ]

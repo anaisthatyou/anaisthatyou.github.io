@@ -23,8 +23,8 @@ Resources:
         SecretToken: !Ref pGitHubToken
       RegisterWithThirdParty: true
       Filters:
-        - JsonPath: "$.sourceReference"
-          MatchEquals: "refs/heads/main"
+        - JsonPath: "$.action"
+          MatchEquals: "opened"
       TargetPipeline: !Ref pPipelineName
       TargetAction: Source
       TargetPipelineVersion: !Ref pPipelineVersion
