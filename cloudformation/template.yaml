@@ -1,0 +1,30 @@
+AWSTemplateFormatVersion: "2010-09-09"
+Description: Testing customized GitHub webhook connections
+
+Parameters:
+  pGitHubToken:
+    Description: GitHub Access Token (ana temporary)
+    Type: String
+
+  pPipelineName:
+    Description: The name of the pipeline
+    Type: String
+
+  pPipelineVersion:
+    Description: The version of the pipeline
+    Type: String
+
+Resources:
+  GitHubWebhook:
+    Type: AWS::CodePipeline::Webhook
+    Properties:
+      Authentication: GITHUB_HMAC
+      AuthenticationConfiguration:
+        SecretToken: !Ref pGitHubToken
+      RegisterWithThirdParty: true
+      Filters:
+        - JsonPath: "$.sourceReference"
+          MatchEquals: "refs/heads/main"
+      TargetPipeline: !Ref pPipelineName
+      TargetAction: Source
+      TargetPipelineVersion: !Ref pPipelineVersion
