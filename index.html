@@ -9,13 +9,16 @@
     rel="stylesheet"
     href="https://unpkg.com/terminal.css@0.7.1/dist/terminal.min.css"
   />
+  <script>
+    hljs.highlightAll();
+  </script>
 
   <title>anaisthatyou</title>
 
   <style>
     :root {
       --primary-color: #7efdd0;
-      --secondary-color: #dd92f6;
+      --secondary-color: #57b6de;
       --error-color: #ff8e8e;
       --background-color: #222225;
       --page-width: 70em;
@@ -70,6 +73,30 @@
           <small> anaisthatyou </small>
         </li>
       </ul>
+
+      <section>
+        <pre>
+          <code>
+const medium = [
+  { name: "Pandora: blah blahblah", description: "Writeup for the Pandora box on HackTheBox", href: "https://medium.com/system-weakness/pandora-hackthebox-49ee5c9be059" }
+]
+          </code>
+        </pre>
+      </section>
+
+      <div class="terminal-timeline">
+        <a
+          href="https://medium.com/system-weakness/pandora-hackthebox-49ee5c9be059"
+        ></a>
+      </div>
     </div>
+
+    <script>
+      document.addEventListener("DOMContentLoaded", function () {
+        document.querySelectorAll("pre code").forEach((block) => {
+          window.hljs.highlightBlock(block);
+        });
+      });
+    </script>
   </body>
 </html>
